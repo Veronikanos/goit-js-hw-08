@@ -16,7 +16,6 @@ function getInputFromLS() {
   const savedObj = JSON.parse(localStorage.getItem('feedback-form-state'));
 
   if (savedObj) {
-    console.log(savedObj);
     for (let item in savedObj) {
       formElement.elements[item].value = savedObj[item];
     }
@@ -25,6 +24,7 @@ function getInputFromLS() {
 
 function handleSubmitForm(event) {
   event.preventDefault();
+  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
   event.target.reset();
   localStorage.removeItem('feedback-form-state');
 }
